@@ -19,8 +19,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 #region Instance DBContext
-//builder.Services.AddDbContext<Elearn360DBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Elearn360DBContext"), b => b.MigrationsAssembly("eLearn360.API")), ServiceLifetime.Transient);
-builder.Services.AddDbContext<Elearn360DBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Elearn360DBRelease"), b => b.MigrationsAssembly("eLearn360.API")), ServiceLifetime.Transient);
+builder.Services.AddDbContext<Elearn360DBContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Elearn360DBContext"), b => b.MigrationsAssembly("eLearn360.API")), ServiceLifetime.Transient);
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddControllers().AddNewtonsoftJson(options =>
